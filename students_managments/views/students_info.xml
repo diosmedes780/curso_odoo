@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <record id="view_students_info_list" model="ir.ui.view">
+        <field name="name">students.info.list</field>
+        <field name="model">students.info</field>
+        <field name="arch" type="xml">
+            <list string="Students Info">
+                <field name="student_id"/>
+                <field name="course_id"/>
+                <field name="country_id"/>
+                <!-- <field name="qualification"/> -->
+            </list>
+        </field>
+    </record>
+
+    <record id="view_students_info_form" model="ir.ui.view">
+        <field name="name">students.info.form</field>
+        <field name="model">students.info</field>
+        <field name="arch" type="xml">
+            <form string="Students Info">
+                <header>
+                    <field name="grade_status" widget="statusbar" options="{'clickable': True}"/>
+                    <button type="object" string="Reprobate" name="reprobate"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="student_id"/>
+                            <field name="course_id"/>
+                            <field name="failed"/>
+                        </group>
+                        <group>
+                            <field name="country_id"/>
+                            <field name="tags_ids" widget="many2many_tags"/>
+                            <field name="address" widget="url"/>
+                            <field name="age"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="qualifications" string="Qualifications">
+                            <field name="qualification_id">
+                                <list string="Qualifications" editable="bottom">
+                                    <field name="school_subject_id"/>
+                                    <field name="qualification"/>
+                                    <field name="state_subject"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page name="note" string="Notes">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_students_info" model="ir.actions.act_window">
+        <field name="name">Students Info</field>
+        <field name="res_model">students.info</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_students_info" 
+        name="Students Info" 
+        action="action_students_info"/>
+
+</odoo>

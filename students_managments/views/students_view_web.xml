@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <template id="view_students_web">
+
+         <t t-call="website.layout">
+            <h2>Student view</h2>
+        </t>
+
+    </template>
+
+</odoo>
