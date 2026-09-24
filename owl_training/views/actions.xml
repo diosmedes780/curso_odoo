@@ -1,0 +1,12 @@
+<odoo>
+    <record id="action_hello_world" model="ir.actions.client">
+        <field name="name">Hola OWL</field>
+        <field name="tag">owl_training.hello_world</field>
+    </record>
+
+    <menuitem id="menu_owl_training_root" name="OWL Training"/>
+    <menuitem id="menu_hello_world"
+              name="Hola mundo"
+              parent="menu_owl_training_root"
+              action="action_hello_world"/>
+</odoo>

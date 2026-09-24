@@ -4,7 +4,8 @@
 
     <template id="students_template_students">
         <t t-call="website.layout">
-            <owl-component name="students_managments.students_components"/>
+            <owl-component name="students_managments.students_components"
+                               t-att-props="json.dumps({'userName': userName, 'student_id': student_id})"/>
         </t>
     </template>
 

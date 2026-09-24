@@ -1,6 +1,10 @@
 from odoo.http import Controller, request, route
 import json
 
+import logging
+
+_logger = logging.getLogger(__name__)
+
 
 class UserController(Controller):
 
@@ -60,9 +64,17 @@ class UserController(Controller):
     def view_calification(self):
 
         userNow = request.env.user
+        partner_id = userNow.partner_id.id
+
+        _logger.info("partner_id_prueba %s", partner_id)
+
+        student = request.env["students.info"].sudo().search([("student_id", "=", partner_id)])
+
+        _logger.info("student_prueba %s", student)
 
         userInfo = {
-            "userName": userNow.partner_id.name
+            "userName": userNow.partner_id.name,
+            "student_id": student.id or None
         }
 
         return request.render("students_managments.students_template_students",userInfo)

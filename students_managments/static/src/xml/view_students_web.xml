@@ -4,7 +4,53 @@
 
     <t t-name="students_managments.students_view_calification_student">
 
-        <h1>Hola Mundo</h1>
+        <h1>Hola: <t t-esc="props.userName"/></h1>
+
+        <h2>Tienes: <t t-esc="state.edad"/> anos</h2>
+
+        <button t-on-click="openAlert">Presioname</button>
+
+        <input type="text" placeholder="Nombre" t-on-input="viewInput"/>
+
+        <button t-on-click="viewNotification">Mostrar Notificacion</button>
+
+        <button t-on-click="changeNumber">Cambiar numero</button>
+
+        <h2>Numero actual: <t t-esc="state.number"/></h2>
+
+        <input type="number" placeholder="edad" t-ref="input_edad"/>
+
+        <button t-on-click="validarEdad">Validar Edad</button>
+
+
+        <div class="students-view">
+            <h3>Calificaciones</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Materia</th>
+                        <th>Calificacion</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="state.calificaciones" t-as="c" t-key="c.id">
+                        <tr>
+                            <td>
+                                <t t-esc="c.school_subject_id[1]"/>
+                            </td>
+                            <td>
+                                <t t-esc="c.qualification"/>
+                            </td>
+                            <td>
+                                <t t-esc="c.state_subject"/>
+                            </td>
+                        </tr>
+                    </t>
+                </tbody>
+            </table>
+        </div>
 
     </t>
 

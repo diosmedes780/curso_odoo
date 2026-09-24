@@ -1,0 +1,9 @@
+<templates xml:space="preserve">
+    <t t-name="owl_training.Counter">
+        <div class="o_counter p-3">
+            <button class="btn btn-secondary" t-on-click="decrement">-</button>
+            <span class="m-3" t-esc="state.count"/>
+            <button class="btn btn-primary" t-on-click="increment">+</button>
+        </div>
+    </t>
+</templates>

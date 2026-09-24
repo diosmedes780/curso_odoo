@@ -1,0 +1,8 @@
+<template xml:space="preserve">
+    <t t-name="owl_training.HelloWorld">
+        <div class="o_hello_world">
+            <h1>Hola <t t-esc="props.name"/>!</h1>
+            <p>Este es tu primer componente OWL en Odoo 19.</p>
+        </div>
+    </t>
+</template>
