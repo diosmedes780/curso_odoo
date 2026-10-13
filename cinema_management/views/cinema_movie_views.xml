@@ -24,6 +24,11 @@
                         <field name="name"/>
                         <field name="category"/>
                         <field name="rating"/>
+                        <notebook>
+                            <page string="Ratings">
+                                <field name="review_ids"/>
+                            </page>
+                        </notebook>
                     </group>
                 </sheet>
             </form>
